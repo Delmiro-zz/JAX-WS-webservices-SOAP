@@ -4,15 +4,12 @@ import javax.xml.ws.Endpoint;
 
 public class PublicaWebService {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        EstoqueWS implementacaoWS = new EstoqueWS();
-        String URL = "http://localhost:8080/estoquews";
+		EstoqueWS service = new EstoqueWS();
+		String url = "http://localhost:8081/estoquews";
 
-        System.out.println("EstoqueWS rodando: " + URL);
+		Endpoint.publish(url, service);
 
-        //associando URL com implementacao
-        Endpoint.publish(URL, implementacaoWS);
-    }
-
+	}
 }
