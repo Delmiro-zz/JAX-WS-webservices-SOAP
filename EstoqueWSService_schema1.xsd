@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://ws.estoque.caelum.com.br/" xmlns:tns="http://ws.estoque.caelum.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="AutorizandoFault" nillable="true" type="xs:string"/>
+
+  <xs:element name="CadastrarItem" type="tns:CadastrarItem"/>
+
+  <xs:element name="CadastrarItemResponse" type="tns:CadastrarItemResponse"/>
+
+  <xs:element name="TodosOsItens" type="tns:TodosOsItens"/>
+
+  <xs:element name="TodosOsItensResponse" type="tns:TodosOsItensResponse"/>
+
+  <xs:element name="filtros" type="tns:filtros"/>
+
+  <xs:element name="item" type="tns:item"/>
+
+  <xs:element name="listaItens" type="tns:listaItens"/>
+
+  <xs:element name="tokenUsuario" type="tns:tokenUsuario"/>
+
+  <xs:complexType name="CadastrarItem">
+    <xs:sequence>
+      <xs:element name="item" type="tns:item" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="item">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" minOccurs="0"/>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="quantidade" type="xs:int"/>
+      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tokenUsuario">
+    <xs:sequence>
+      <xs:element name="dataValidade" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="token" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CadastrarItemResponse">
+    <xs:sequence>
+      <xs:element name="item" type="tns:item" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TodosOsItens">
+    <xs:sequence>
+      <xs:element name="filtros" type="tns:filtros" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="filtros">
+    <xs:sequence>
+      <xs:element name="filtro" type="tns:filtro" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="filtro">
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipo" type="tns:tipoItem" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TodosOsItensResponse">
+    <xs:sequence>
+      <xs:element name="itens" type="tns:listaItens" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listaItens">
+    <xs:sequence>
+      <xs:element name="item" type="tns:item" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="tipoItem">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Livro"/>
+      <xs:enumeration value="Celular"/>
+      <xs:enumeration value="Tablet"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
