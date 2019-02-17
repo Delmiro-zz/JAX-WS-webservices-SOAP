@@ -21,7 +21,7 @@ import br.com.caelum.estoque.modelo.usuario.TokenDao;
 import br.com.caelum.estoque.modelo.usuario.TokenUsuario;
 
 @WebService
-@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL, parameterStyle=ParameterStyle.BARE)
+@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL, parameterStyle=ParameterStyle.WRAPPED)
 public class EstoqueWS {
 
 	private ItemDao itemDao = new ItemDao();

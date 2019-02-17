@@ -1,0 +1,15 @@
+Utilizando  JBoss Wildfly como servidor de aplicação. No qual incopora o que se chama CXF
+(uma ferramenta para criar automaticamente as classes do Servidor ou do cliente a partir do WDSL )
+
+Opções:
+-k - keep, para manter o código fonte
+-o - para definir a pasta de saida
+-n - não compilar (pois o Eclipse vai compilar)
+
+Dentro da pasta do widfly
+wildfly-8.2.0/bin
+
+executar o seguinte comando:
+
+Obs: No Windows, assumindo que a pasta workspace está no C:\ execute:
+wsconsume.bat -k -n -o C:\workspace\estoque-web\src C:\workspace\estoque-web\src\EstoqueWSServiceCap5.wsdl
